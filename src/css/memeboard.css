@@ -1,39 +1,56 @@
 .meme-photo {
-    height: 10.0vh;
-    margin-left : 3.0vw;
+  height: 10vh;
+  margin-left: 3vw;
 }
 
 .meme-board-div {
-    background-color: rgba(255,0,0, 0.2);
-    height : 30.0vh;
+  background-color: rgba(255, 0, 0, 0.2);
+  height: 30vh;
 }
 
 .board-tag-div {
-    width : 100%;
-    height: 30.0vh;
-    text-align: center;
+  width: 100%;
+  height: 30vh;
+  text-align: center;
 }
 
 .board-category-div {
-    width : 100%;
-    height: 10.0vh;
-    text-align: center;
-    align-content: center;
-    background-color: rgba(255,0,0, 0.2);
+  width: 100%;
+  height: 10vh;
+  text-align: center;
+  align-content: center;
+  background-color: rgba(255, 0, 0, 0.2);
 }
 
 .board-category {
-    font-size: 3.0vh;
-    color : #C7C7C7;
-    height: 5.0vh;
-    line-height: 5.0vh;
-    text-align: center;
-    display:inline-block;
-    width:10.0vw;
-    margin : 0 auto;
+  font-size: 3vh;
+  color: #c7c7c7;
+  height: 5vh;
+  line-height: 5vh;
+  text-align: center;
+  display: inline-block;
+  width: 10vw;
+  margin: 0 auto;
 }
 
 .selected {
-    color: #000;
-    font-weight: bolder;
+  color: #000;
+  font-weight: bolder;
+}
+
+.tag-btn {
+  width: 15.0vw;
+  height: 5.0vh;
+
+  background: #d3d3d3;
+  border-radius: 64px;
+  margin-left: 3.0vw;
+  margin-bottom: 1.0vh;
+  border: #d3d3d3;
+  font-size: 2.0vh;
+  font-weight: bold;
+}
+
+.tag-btn-row {
+    background: -webkit-linear-gradient(90deg, white 90%, rgba(255, 0, 0, 0.2) 10%);
 }
