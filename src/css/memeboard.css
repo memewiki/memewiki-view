@@ -3,7 +3,7 @@
   margin-left: 3vw;
 }
 
-.meme-board-div {
+.popular-meme-board-div {
   background-color: rgba(255, 0, 0, 0.2);
   height: 30vh;
 }
@@ -16,7 +16,7 @@
 
 .board-category-div {
   width: 100%;
-  height: 10vh;
+  /* height: 10vh; */
   text-align: center;
   align-content: center;
   background-color: rgba(255, 0, 0, 0.2);
@@ -53,4 +53,46 @@
 
 .tag-btn-row {
     background: -webkit-linear-gradient(90deg, white 90%, rgba(255, 0, 0, 0.2) 10%);
+}
+
+.recent-meme-div {
+  margin-top: 5.0vh;
+}
+
+.recent-meme .title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.3vw;
+  padding-left: 2.5vw;
+}
+
+.refresh-btn {
+  position: absolute;
+  left : 12.0vw;
+  top : 75.0vh;
+  font-size: 2.0vw;
+}
+
+.meme-photo-div {
+  float: left;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.meme-board-photo {
+  width: 273px;
+  height: 273px;
+  box-sizing: border-box;
+  background: #D9D9D9;
+  border: 3px solid #000000;
+}
+
+.meme-tag {
+  color: #858585;
+  font-family:'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
 }

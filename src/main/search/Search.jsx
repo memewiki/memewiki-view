@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../../css/search.css';
 import {BsSearch} from 'react-icons/bs';
 import AutoComplete from './AutoComplete';
 
@@ -13,7 +12,14 @@ const Search = () => {
         '아이들 우기',
         '아이들 소연',
         '아이들 미연',
-        '마마무'
+        '마마무',
+        '아이들 톰보이',
+        '아이들 Uh-Oh',
+        '아이들 싫다고 말해',
+        '아이들 Lion',
+        '아이들 라타타',
+        '아이들 한',
+        '아이들 덤디덤디'
     ];
 
     const [keywords, setKeywords] = useState([]);
@@ -24,7 +30,10 @@ const Search = () => {
         const text = e.target.value;
         if (text !== undefined && text.length > 0) {
             const matches = sampleList.filter(sample => sample.startsWith(text));
+            const matches2 = matches.map(word => " ".repeat(Math.floor(Math.random()*20)) + word);
             setKeywords(matches);
+            setKeyword(text);
+            // console.log(matches2);
         } else {
             setKeywords([]);
         }
@@ -38,7 +47,10 @@ const Search = () => {
             <div className="search-center-div">
                 <BsSearch className='search-button'/>
                 <input className="search-input" onChange={onChange}/>
-                <AutoComplete keywords={keywords} />
+                <AutoComplete 
+                keywords={keywords}
+                keyword={keyword}
+                />
             </div>
             <div className="search-right-div">
                 <button className="add-button">

@@ -1,13 +1,12 @@
 import React from 'react';
-import '../../css/memeboard.css';
 
 const PopularMeme = props => {
 
     const photos  = props.photos;
 
     return (
-        <div className='meme-board-div'>
-            <div className='meme-format'>
+        <div className='popular-meme-board-div'>
+            <div className='popular-meme-format'>
                 {
                     photos !== undefined ?
                     photos.map((photo, key) => (

@@ -55,14 +55,17 @@
     background-color: #F2F2F2;
     width: 62.29%;
     display:inline-table;
-    margin-top: -2.9vh;
+    margin-top: -3.2vh;
     position: absolute;
-    left : 20.0vw;
+    left : 19.8vw;
 }
 
 .auto-complete-keyword {
     height: 2.0vh;
     line-height: 2.0vh;
     padding-left: 0.5vw;
+}
+
+.auto-complete-keyword b {
     font-weight: bolder;
 }

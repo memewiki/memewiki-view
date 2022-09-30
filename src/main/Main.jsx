@@ -1,7 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import ChoiceTags from './memeboard/ChoiceTags';
+import MemeBoard from './memeboard/MemeBoard';
 import PopularMeme from './memeboard/PopularMeme';
+import RecentMemeTitle from './memeboard/RecentMemeTitle';
 import Search from './search/Search';
+import '../css/memeboard.css';
+import '../css/search.css';
 
 const Main = () => {
 
@@ -17,7 +21,13 @@ const Main = () => {
         for (let i = 0;i<10;i++) {
             array.push({
                 name : 'yuqi',
-                url : 'images/yuqi.jpg'
+                url : 'images/yuqi.jpg',
+                tags : [
+                    '우기',
+                    '푸들',
+                    '아이들',
+                    '반전목소리'
+                ]
             });
         }
 
@@ -47,7 +57,6 @@ const Main = () => {
             {category : '드라마', tag : '주몽'},
             {category : '드라마', tag : '허준'},
             {category : '드라마', tag : '불멸의이순신'}]);
-            console.log("Main useEffect");
     },[]);
 
     return (
@@ -60,6 +69,8 @@ const Main = () => {
                 setCategory={setCategory}
                 tags={tags}
             />
+            <RecentMemeTitle />
+            <MemeBoard photos={popularMemePhotos}/>
         </Fragment>
     );
 };
