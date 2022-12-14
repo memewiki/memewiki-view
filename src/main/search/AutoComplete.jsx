@@ -4,14 +4,6 @@ const AutoComplete = props => {
 
     const { keyword, keywords } = props;
 
-    useEffect(() => {
-        if (keywords !== undefined && keywords.length > 0) {
-        const text = keywords[0];
-        let text2 = text.substring(0,keyword);
-        console.log(text2);
-        }
-    },[keywords])
-
     return (
         <div className='auto-complete-div'>
             {
