@@ -30,10 +30,9 @@ const Search = () => {
         const text = e.target.value;
         if (text !== undefined && text.length > 0) {
             const matches = sampleList.filter(sample => sample.startsWith(text));
-            const matches2 = matches.map(word => " ".repeat(Math.floor(Math.random()*20)) + word);
             setKeywords(matches);
             setKeyword(text);
-            // console.log(matches2);
+            
         } else {
             setKeywords([]);
         }
