@@ -6,6 +6,7 @@ import RecentMemeTitle from './memeboard/RecentMemeTitle';
 import Search from './search/Search';
 import '../css/memeboard.css';
 import '../css/search.css';
+import Collage from './collage/Collage';
 
 const Main = () => {
 
@@ -71,6 +72,7 @@ const Main = () => {
             />
             <RecentMemeTitle />
             <MemeBoard photos={popularMemePhotos}/>
+            <Collage />
         </Fragment>
     );
 };
