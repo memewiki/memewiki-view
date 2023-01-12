@@ -2,15 +2,17 @@ import React, { Fragment, useEffect, useState } from 'react';
 import ChoiceTags from './memeboard/ChoiceTags';
 import MemeBoard from './memeboard/MemeBoard';
 import PopularMeme from './memeboard/PopularMeme';
-import RecentMemeTitle from './memeboard/RecentMemeTitle';
+import RecentMemeTitle from './memeboard/RecentMemeTitle'; 
+import Collage from './collage/Collage';
 import Search from './search/Search';
 import '../css/memeboard.css';
 import '../css/search.css';
-import Collage from './collage/Collage';
+import '../css/collage.css';
 
 const Main = () => {
 
     const [popularMemePhotos, setPopularMemePhotos] = useState([]);
+    const [recentMemePhotos, setRecentMemePhotos] = useState([]);
     const [categories, setCategories] = useState([]);
     const [tags, setTags] = useState([]);
     const [category, setCategory] = useState('아이돌');
@@ -18,6 +20,7 @@ const Main = () => {
     useEffect(() => {
 
         let array = [];
+        let array2 = [];
 
         for (let i = 0;i<10;i++) {
             array.push({
@@ -32,7 +35,21 @@ const Main = () => {
             });
         }
 
+        for (let i = 0;i<30;i++) {
+            array2.push({
+                name : 'yuqi',
+                url : 'images/yuqi.jpg',
+                tags : [
+                    '우기',
+                    '푸들',
+                    '아이들',
+                    '반전목소리'
+                ]
+            });
+        }
+
         setPopularMemePhotos(array);
+        setRecentMemePhotos(array2);
         setCategories(['아이돌', '드라마']);
         setTags([
             {category : '아이돌', tag : '아이들'}, 
@@ -71,8 +88,9 @@ const Main = () => {
                 tags={tags}
             />
             <RecentMemeTitle />
-            <MemeBoard photos={popularMemePhotos}/>
-            <Collage />
+            <MemeBoard photos={recentMemePhotos}>
+                <Collage />
+            </MemeBoard>
         </Fragment>
     );
 };

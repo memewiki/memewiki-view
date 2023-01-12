@@ -1,113 +1,102 @@
 :root {
-  --gray1 : #d3d3d3;
+  --gray1: #d3d3d3;
 }
 
 .meme-photo {
-    height: 10vh;
-    margin-left: 3vw;
-  }
-  
-  .popular-meme-board-div {
-    background-color: rgba(255, 0, 0, 0.2);
-    height: 30vh;
-  }
-  
-  .board-tag-div {
-    width: 100%;
-    height: 30vh;
-    text-align: center;
-  }
-  
-  .board-category-div {
-    width: 100%;
-    /* height: 10vh; */
-    text-align: center;
-    align-content: center;
-    background-color: rgba(255, 0, 0, 0.2);
-  }
-  
-  .board-category {
-    font-size: 3vh;
-    color: #c7c7c7;
-    height: 5vh;
-    line-height: 5vh;
-    text-align: center;
-    display: inline-block;
-    width: 10vw;
-    margin: 0 auto;
-  }
-  
-  .selected {
-    color: #000;
-    font-weight: bolder;
-  }
-  
-  .tag-btn {
-    width: 15.0vw;
-    height: 5.0vh;
-  
-    background: #d3d3d3;
-    border-radius: 64px;
-    margin-left: 3.0vw;
-    margin-bottom: 1.0vh;
-    border: #d3d3d3;
-    font-size: 2.0vh;
-    font-weight: bold;
-  }
-  
-  .tag-btn-row {
-      background: -webkit-linear-gradient(90deg, white 90%, rgba(255, 0, 0, 0.2) 10%);
-  }
-  
-  .recent-meme-div {
-    margin-top: 5.0vh;
-  }
-  
-  .recent-meme .title {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 3vw;
-    padding-left: 2.5vw;
-  }
-  
-  .refresh-btn {
-    position: absolute;
-    left : 12.0vw;
-    top : 8.0vh;
-    font-size: 2.0vw;
-  }
-  
-  .meme-photo-div {
-    float: left;
-    margin-left: 50px;
-    margin-top: 50px;
-  }
-  
-  .meme-board-photo {
-    width: 273px;
-    height: 273px;
-    box-sizing: border-box;
-    background: #D9D9D9;
-    border: 3px solid #000000;
-  }
-  
-  .meme-tag {
-    color: #858585;
-    font-family:'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-  }
-
-.collage-div {
-  float: left;
-  text-align: center;
-  width : 100%;
-  margin-top: 8.0vh;
-  rad
+  height: 10vh;
+  margin-left: 3vw;
 }
 
+.popular-meme-board-div {
+  background-color: rgba(255, 0, 0, 0.2);
+  height: 30vh;
+}
 
-  
+.board-tag-div {
+  width: 100%;
+  height: 30vh;
+  text-align: center;
+}
+
+.board-category-div {
+  width: 100%;
+  /* height: 10vh; */
+  text-align: center;
+  align-content: center;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.board-category {
+  font-size: 3vh;
+  color: #c7c7c7;
+  height: 5vh;
+  line-height: 5vh;
+  text-align: center;
+  display: inline-block;
+  width: 10vw;
+  margin: 0 auto;
+}
+
+.selected {
+  color: #000;
+  font-weight: bolder;
+}
+
+.tag-btn {
+  width: 15.0vw;
+  height: 5.0vh;
+
+  background: #d3d3d3;
+  border-radius: 64px;
+  margin-left: 3.0vw;
+  margin-bottom: 1.0vh;
+  border: #d3d3d3;
+  font-size: 2.0vh;
+  font-weight: bold;
+}
+
+.tag-btn-row {
+  background: -webkit-linear-gradient(90deg, white 90%, rgba(255, 0, 0, 0.2) 10%);
+}
+
+.recent-meme-div {
+  margin-top: 5.0vh;
+}
+
+.recent-meme .title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.0vw;
+  padding-left: 2.5vw;
+}
+
+#refresh-btn {
+  position: absolute;
+  left: 18.0vw;
+  top: 75.0vh;
+  font-size: 3.0vw;
+}
+
+.meme-photo-div {
+  float: left;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.meme-board-photo {
+  width: 250px;
+  height: 250px;
+  box-sizing: border-box;
+  background: #D9D9D9;
+  border: 3px solid #000000;
+}
+
+.meme-tag {
+  color: #858585;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}
