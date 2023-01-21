@@ -8,7 +8,7 @@ const RecentMemeTitle = () => {
                 <p className='recent-meme title'>
                     최근 등록된 짤
                 </p>
-                <IoRefreshCircleOutline className='refresh-btn' />
+                <IoRefreshCircleOutline id='refresh-btn' />
             </div>
         </div>
     );
