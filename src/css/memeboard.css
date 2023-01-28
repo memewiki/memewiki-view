@@ -34,6 +34,7 @@
   display: inline-block;
   width: 10vw;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .selected {
@@ -73,7 +74,7 @@
 #refresh-btn {
   position: absolute;
   left: 18.0vw;
-  top: 75.0vh;
+  top: 83.0vh;
   font-size: 3.0vw;
 }
 
