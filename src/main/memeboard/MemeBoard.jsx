@@ -1,4 +1,5 @@
 import React from 'react';
+import Meme from './Meme';
 
 const MemeBoard = props => {
 
@@ -9,23 +10,9 @@ const MemeBoard = props => {
 
     const makePhotoBoard = (list) => {
         return list.map((photo, key) => (
-            <div className='meme-photo-div' key={key+"_div"}>
-                <img src={photo.url} alt="meme" key={key+"_photo"} className="meme-board-photo"/>
-                <div className='meme-tags-div'>
-                {
-                    photo.tags !== undefined ? 
-                    photo.tags.slice(0,3).map((tag, key) => (
-                        <span className='meme-tag' key={key}>
-                            {"#" + tag+" "}
-                        </span>
-                    )) : null
-                }
-                {
-                    photo.tags !== undefined && photo.tags.length > 3 ?
-                    <span className='meme-tag'>{"+" + (photo.tags.length - 3)}</span> : null
-                }
-                </div>
-            </div>
+            <Meme photo={photo} 
+                key={key} 
+                setSelectedMeme={props.setSelectedMeme} />
         ));
     }
 

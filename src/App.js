@@ -7,6 +7,7 @@ import './css/memeboard.css';
 import './css/search.css';
 import './css/collage.css';
 import './css/searchResult.css';
+import './css/meme_detail.css';
 
 function App() {
 

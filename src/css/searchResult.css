@@ -1,6 +1,7 @@
 #sort-type-toggle-div {
     text-align: center;
     padding-top: 30px;
+    padding-bottom: 30px;
     background: rgba(255, 0, 0, 0.2);
 }
 
@@ -12,5 +13,19 @@
 
 #top-3-memes-div {
     background: rgba(255, 0, 0, 0.2);
-    height: 350px;
+    height: 450px;
+    width: 100%;
+    display : flex;
+}
+
+.top3-photo {
+    width: 400px;
+    height: 400px;
+    border: 2px solid black;
+}
+
+.top3-photo-div {
+    float : left;
+    margin-left: 50px;
+    width: 100%;
 }

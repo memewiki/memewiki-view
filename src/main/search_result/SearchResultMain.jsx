@@ -1,6 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import SortTypeToggle from './SortTypeToggle';
 import Top3Memes from './Top3Memes';
+import MemeBoard from './../memeboard/MemeBoard';
+import Collage from './../collage/Collage';
+import MemeDetail from '../memeboard/MemeDetail';
 
 const SearchResultMain = props => {
 
@@ -27,7 +30,7 @@ const SearchResultMain = props => {
     } else {
       let array = [];
       if (toggleType === 'recent') {
-        for (let i = 0;i<10;i++) {
+        for (let i = 0;i<30;i++) {
           array.push({
               name : 'yuqi',
               url : 'images/yuqi.jpg',
@@ -40,7 +43,7 @@ const SearchResultMain = props => {
           });
         }
       } else {
-        for (let i = 0;i<10;i++) {
+        for (let i = 0;i<30;i++) {
           array.push({
               name : 'yuqi',
               url : 'images/soyeon.jpg',
@@ -63,6 +66,10 @@ const SearchResultMain = props => {
         toggleType={toggleType}
         setToggleType={setToggleType} />
       <Top3Memes memes={memes.slice(0,3)} />
+      <MemeBoard photos={memes}>
+        <Collage />
+      </MemeBoard>
+      <MemeDetail />
     </Fragment>
   );
 };

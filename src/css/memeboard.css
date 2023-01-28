@@ -7,6 +7,11 @@
   margin-left: 3vw;
 }
 
+.meme-board-div {
+  width: 100%;
+  display: flex;
+}
+
 .popular-meme-board-div {
   background-color: rgba(255, 0, 0, 0.2);
   height: 30vh;
@@ -80,8 +85,10 @@
 
 .meme-photo-div {
   float: left;
-  margin-left: 50px;
-  margin-top: 50px;
+  padding: 5px;
+  width: 300px;
+  margin : auto;
+  position: relative;
 }
 
 .meme-board-photo {
@@ -99,4 +106,55 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
+}
+
+.meme-format {
+  text-align: center;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.img-download-btn {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 8px;
+
+  background: #FFFFFF;
+  border: 2px solid #000000;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  line-height: 29px;
+
+  position: absolute;
+  top: 65%;
+  left : 20%;
+}
+
+.img-like-btn {
+  position: absolute;
+  top: 65%;
+  right : 20%;
+  background: #9E9E9E;
+  text-align: center;
+  font-family: 'Inter';
+  font-style: normal;
+  /* font-weight: 700; */
+  font-size: 25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+
+  color: #000000;
+}
+
+.not-hover {
+  opacity: 0;
 }

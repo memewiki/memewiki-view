@@ -4,6 +4,7 @@ import MemeBoard from './memeboard/MemeBoard';
 import PopularMeme from './memeboard/PopularMeme';
 import RecentMemeTitle from './memeboard/RecentMemeTitle'; 
 import Collage from './collage/Collage';
+import MemeDetail from './memeboard/MemeDetail';
 
 const Main = () => {
 
@@ -12,6 +13,7 @@ const Main = () => {
     const [categories, setCategories] = useState([]);
     const [tags, setTags] = useState([]);
     const [category, setCategory] = useState('아이돌');
+    const [selectedMeme, setSelectedMeme] = useState({});
 
     useEffect(() => {
 
@@ -83,9 +85,11 @@ const Main = () => {
                 tags={tags}
             />
             <RecentMemeTitle />
-            <MemeBoard photos={recentMemePhotos}>
+            <MemeBoard photos={recentMemePhotos}
+                setSelectedMeme={setSelectedMeme}>
                 <Collage />
             </MemeBoard>
+            <MemeDetail meme={selectedMeme}/>
         </Fragment>
     );
 };
