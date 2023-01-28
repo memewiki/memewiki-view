@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import {BsSearch} from 'react-icons/bs';
 import AutoComplete from './AutoComplete';
 
-const Search = () => {
+const Search = props => {
 
     const sampleList = [
         '박명수',
@@ -24,7 +25,13 @@ const Search = () => {
 
     const [keywords, setKeywords] = useState([]);
 
-    const [keyword, setKeyword] = useState('아이들');
+    const [keyword, setKeyword] = useState('');
+
+    useEffect(() => {
+        if (props.keyword) {
+            setKeyword(props.keyword);
+        }
+    }, []);
 
     const onChange = e => {
         const text = e.target.value;
