@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import {BsSearch} from 'react-icons/bs';
+import { useNavigate } from 'react-router';
 import AutoComplete from './AutoComplete';
 
 const Search = props => {
@@ -23,6 +24,8 @@ const Search = props => {
         '아이들 덤디덤디'
     ];
 
+    const navigate = useNavigate();
+
     const [keywords, setKeywords] = useState([]);
 
     const [keyword, setKeyword] = useState('');
@@ -39,10 +42,14 @@ const Search = props => {
             const matches = sampleList.filter(sample => sample.startsWith(text));
             setKeywords(matches);
             setKeyword(text);
-            
         } else {
             setKeywords([]);
         }
+    }
+
+    const findKeyword = () => {
+        props.setSearchKeyword(keyword);
+        navigate("/search");
     }
 
     return (
@@ -51,7 +58,8 @@ const Search = props => {
                 <p className="search-label">웹사이트 이름</p>
             </div>
             <div className="search-center-div">
-                <BsSearch className='search-button'/>
+                <BsSearch className='search-button'
+                    onClick={findKeyword}/>
                 <input className="search-input" onChange={onChange}/>
                 <AutoComplete 
                 keywords={keywords}

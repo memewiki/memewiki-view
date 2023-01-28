@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Main from './main/Main';
+import Search from './main/search/Search';
 import SearchResultMain from './main/search_result/SearchResultMain';
+import './css/memeboard.css';
+import './css/search.css';
+import './css/collage.css';
+import './css/searchResult.css';
 
 function App() {
 
@@ -9,15 +14,14 @@ function App() {
 
   return (
     <div className="App">
-      {/* <BrowserRouter>
+      <BrowserRouter>
+        <Search setSearchKeyword={setSearchKeyword}/>
         <Routes>
-          <Route path="/" render={() => <Main />} />
+          <Route path="/" element={<Main />} />
           <Route path="/search" element={<SearchResultMain 
-            searchKeyword={searchKeyword}
-            setSearchKeyword={setSearchKeyword}/>} />
+            searchKeyword={searchKeyword}/>} />
         </Routes>
-      </BrowserRouter> */}
-      <Main />
+      </BrowserRouter>
     </div>
   );
 }

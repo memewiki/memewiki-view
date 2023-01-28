@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const SortTypeToggle = props => {
 
-  const [toggleType, setToggleType] = useState('recent');
-
   useEffect(() => {
-    props.setToggleType(toggleType);
-  }, [toggleType]);
+    props.setToggleType(props.toggleType);
+  }, [props.toggleType]);
+
+  const changeToggleType = () => {
+    switch(props.toggleType) {
+      case 'recent' :
+        props.setToggleType('popular');
+        break;
+      case 'popular' :
+        props.setToggleType('recent');
+        break;
+      default : 
+        break;
+    }
+  }
 
   return (
     <div id="sort-type-toggle-div">
-      <p className={toggleType === 'recent' ? 'board-category selected' : 'board-category'}>
+      <span className={props.toggleType === 'recent' ? 'sort-type selected' : 'sort-type'}
+        onClick={changeToggleType}>
         최신순
-      </p>
-      <p className={toggleType === 'popular' ? 'board-category selected' : 'board-category'}>
+      </span>
+      <span className={props.toggleType === 'popular' ? 'sort-type selected' : 'sort-type'}
+        onClick={changeToggleType}>
         좋아요순
-      </p>
+      </span>
     </div>
   );
 };

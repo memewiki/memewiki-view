@@ -4,10 +4,6 @@ import MemeBoard from './memeboard/MemeBoard';
 import PopularMeme from './memeboard/PopularMeme';
 import RecentMemeTitle from './memeboard/RecentMemeTitle'; 
 import Collage from './collage/Collage';
-import Search from './search/Search';
-import '../css/memeboard.css';
-import '../css/search.css';
-import '../css/collage.css';
 
 const Main = () => {
 
@@ -79,7 +75,6 @@ const Main = () => {
 
     return (
         <Fragment>
-            <Search />
             <PopularMeme photos={popularMemePhotos}/>
             <ChoiceTags 
                 categories={categories}

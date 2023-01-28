@@ -1,0 +1,16 @@
+#sort-type-toggle-div {
+    text-align: center;
+    padding-top: 30px;
+    background: rgba(255, 0, 0, 0.2);
+}
+
+.sort-type {
+    margin-left: 10.0vw;
+    margin-right: 10.0vw;
+    font-size: 20px;
+}
+
+#top-3-memes-div {
+    background: rgba(255, 0, 0, 0.2);
+    height: 350px;
+}
