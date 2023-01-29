@@ -14,6 +14,7 @@ const Main = () => {
     const [tags, setTags] = useState([]);
     const [category, setCategory] = useState('아이돌');
     const [selectedMeme, setSelectedMeme] = useState({});
+    const [openModal, setOpenModal] = useState(false);
 
     useEffect(() => {
 
@@ -24,6 +25,9 @@ const Main = () => {
             array.push({
                 name : 'yuqi',
                 url : 'images/yuqi.jpg',
+                createAt : '2022.08.29',
+                download : 300,
+                viewCnt : 100,
                 tags : [
                     '우기',
                     '푸들',
@@ -37,6 +41,9 @@ const Main = () => {
             array2.push({
                 name : 'yuqi',
                 url : 'images/yuqi.jpg',
+                createAt : '2022.08.29',
+                download : 300,
+                viewCnt : 100,
                 tags : [
                     '우기',
                     '푸들',
@@ -86,10 +93,16 @@ const Main = () => {
             />
             <RecentMemeTitle />
             <MemeBoard photos={recentMemePhotos}
-                setSelectedMeme={setSelectedMeme}>
+                setSelectedMeme={setSelectedMeme}
+                setOpenModal={setOpenModal}>
                 <Collage />
             </MemeBoard>
-            <MemeDetail meme={selectedMeme}/>
+            {   
+                openModal &&
+                <MemeDetail meme={selectedMeme} 
+                    openModal={openModal}
+                    setOpenModal={setOpenModal} />
+            }
         </Fragment>
     );
 };

@@ -1,13 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 const MemeDetail = props => {
 
   const meme = props.meme;
 
-  return (
+  const [domReady, setDomReady] = useState(false);
+
+  useEffect(() => {
+    setDomReady(true);
+  }, [])
+
+  const closeMemeDetail = () => {
+    setDomReady(false);
+    props.setOpenModal(false);
+  }
+
+  return domReady && meme !== undefined && (
     <div id="meme-detail-outer-div">
       <div id="meme-detail-div">
-        <img src={meme.url} alt="meme" className="meme-board-photo"/>
+        <button id="meme-detail-close-btn"
+          onClick={closeMemeDetail}>X</button>
+        <div id="meme-detail-img-div">
+          <img src={meme.url} alt="meme" id="meme-detail-photo"/>
+        </div>
+        <div id="meme-detail-btn-div">
+          <div id="meme-detail-like-btn-div">
+            <div id="meme-detail-heart-div">
+              💓
+            </div>
+          </div>
+          <div id="meme-detail-download-btn-div">
+            <button id="meme-detail-download-btn">
+              다운로드
+            </button>
+          </div>
+          <div id="meme-detail-info-div">
+            <div className='meme-detail-info-inner-div'>
+              <p className="meme-detail-info first-info">
+                {meme.createAt}
+              </p>
+            </div>
+            <div className='meme-detail-info-inner-div'>
+              <p className="meme-detail-info second-info">
+                다운로드 {meme.download} 
+              </p>
+            </div>
+            <div className='meme-detail-info-inner-div'>
+              <p className="meme-detail-info third-info">
+                조회수 {meme.viewCnt} 
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

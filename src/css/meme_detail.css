@@ -18,13 +18,122 @@
   z-index: 10;
   box-sizing: border-box;
 
-position: absolute;
-width: 80%;
-height: 80%;
-left: 10%;
-top: 10%;
-vertical-align: middle;
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
+  vertical-align: middle;
 
-background: #F2F2F2;
-border: 2px solid #000000;
+  background: #F2F2F2;
+  border: 2px solid #000000;
+}
+
+#meme-detail-close-btn {
+  border : 1px solid black;
+  height : 30px;
+  width: 30px;
+  right: 0px;
+  position: absolute;
+}
+
+#meme-detail-img-div {
+  position: absolute;
+  background : rgba(255, 0, 0, 0.2);
+  width: 50%;
+  height: 70%;
+  text-align: center;
+  top : 10%;
+  left : 7%;
+  float: left;
+}
+
+#meme-detail-photo {
+  width: 50%;
+  height: 100%;
+}
+
+#meme-detail-btn-div {
+  float : right;
+  position : absolute;
+  top : 30px;
+  right: 0px;
+  height : 90%;
+  width : 40%;
+  text-align: center;
+}
+
+#meme-detail-like-btn-div {
+  background: #D9D9D9;
+  height : 225px;
+  width : 225px;
+  border-radius: 112.5px;
+  text-align: center;
+  
+  margin-top: 15.0vh;
+
+  display: inline-block;
+}
+
+#meme-detail-heart-div {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 120px;
+
+  position: relative;
+  top: 30px;
+  left: 0px;
+  
+  color: #000000;
+}
+
+#meme-detail-download-btn-div {
+  margin-top: 8.0vh;
+  text-align: center;
+}
+
+#meme-detail-download-btn {
+  box-sizing: border-box;
+
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3.0vh 12px;
+  gap: 8px;
+  font-size: 3.0vw;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  font-family: 'Inter';
+  font-style: normal;
+  width: 80%;
+  height: 6.0vh;
+}
+
+#meme-detail-info-div {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.meme-detail-info {
+  width: 100%;
+  color: #858585;
+}
+
+.first-info {
+  text-align: left;
+}
+
+.second-info {
+  text-align: center;
+}
+
+.third-info {
+  text-align: right;
+}
+
+.meme-detail-info-inner-div {
+  float: left;
+  width: 33%;
 }

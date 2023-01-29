@@ -12,7 +12,8 @@ const MemeBoard = props => {
         return list.map((photo, key) => (
             <Meme photo={photo} 
                 key={key} 
-                setSelectedMeme={props.setSelectedMeme} />
+                setSelectedMeme={props.setSelectedMeme} 
+                setOpenModal={props.setOpenModal} />
         ));
     }
 

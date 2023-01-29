@@ -10,6 +10,8 @@ const SearchResultMain = props => {
   const [toggleType, setToggleType] = useState('recent');
 
   const [memes, setMemes] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedMeme, setSelectedMeme] = useState({});
 
   useEffect(() => {
     if (memes === undefined || memes.length === 0) {
@@ -18,6 +20,9 @@ const SearchResultMain = props => {
         array.push({
             name : 'yuqi',
             url : 'images/yuqi.jpg',
+            createAt : '2022.08.29',
+                download : 300,
+                viewCnt : 100,
             tags : [
                 '우기',
                 '푸들',
@@ -34,6 +39,9 @@ const SearchResultMain = props => {
           array.push({
               name : 'yuqi',
               url : 'images/yuqi.jpg',
+              createAt : '2022.08.29',
+                download : 300,
+                viewCnt : 100,
               tags : [
                   '우기',
                   '푸들',
@@ -47,6 +55,9 @@ const SearchResultMain = props => {
           array.push({
               name : 'yuqi',
               url : 'images/soyeon.jpg',
+              createAt : '2022.08.29',
+                download : 300,
+                viewCnt : 100,
               tags : [
                   '소연',
                   '리더',
@@ -66,10 +77,17 @@ const SearchResultMain = props => {
         toggleType={toggleType}
         setToggleType={setToggleType} />
       <Top3Memes memes={memes.slice(0,3)} />
-      <MemeBoard photos={memes}>
+      <MemeBoard photos={memes}
+        setSelectedMeme={setSelectedMeme}
+        setOpenModal={setOpenModal}>
         <Collage />
       </MemeBoard>
-      <MemeDetail />
+      {   
+        openModal &&
+        <MemeDetail meme={selectedMeme} 
+          openModal={openModal}
+          setOpenModal={setOpenModal} />
+      }
     </Fragment>
   );
 };

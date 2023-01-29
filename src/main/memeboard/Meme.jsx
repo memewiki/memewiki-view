@@ -19,8 +19,9 @@ const Meme = props => {
         setHover(false);
     }
 
-    const setSelectedMeme = () => {
+    const clickMeme = () => {
         props.setSelectedMeme(photo);
+        props.setOpenModal(true);
     }
 
     return (
@@ -28,7 +29,7 @@ const Meme = props => {
             onMouseEnter={showBtns}
             onMouseLeave={hideBtns}>
             <img src={photo.url} alt="meme" className="meme-board-photo"
-                onClick={setSelectedMeme}/>
+                onClick={clickMeme}/>
             <div className='meme-tags-div'>
             {
                 photo.tags !== undefined ? 
