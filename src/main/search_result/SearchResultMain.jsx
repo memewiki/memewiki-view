@@ -16,7 +16,7 @@ const SearchResultMain = props => {
   useEffect(() => {
     if (memes === undefined || memes.length === 0) {
       let array = [];
-      for (let i = 0;i<10;i++) {
+      for (let i = 0;i<30;i++) {
         array.push({
             name : 'yuqi',
             url : 'images/yuqi.jpg',

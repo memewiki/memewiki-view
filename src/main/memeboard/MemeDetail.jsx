@@ -8,6 +8,7 @@ const MemeDetail = props => {
   const [domReady, setDomReady] = useState(false);
 
   useEffect(() => {
+    console.log("meme : " + JSON.stringify(meme));
     setDomReady(true);
   }, [])
 
@@ -52,6 +53,14 @@ const MemeDetail = props => {
               </p>
             </div>
           </div>
+        </div>
+        <div id="meme-detail-marquee-div">
+          <p>
+          {
+            meme.tags && meme.tags.length > 0 ?
+            meme.tags.map((tag, key) => '#'+tag+'\u00A0'+'\u00A0'+'\u00A0'+'\u00A0'+'\u00A0'+'\u00A0') : null
+          }
+          </p>
         </div>
       </div>
     </div>
