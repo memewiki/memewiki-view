@@ -12,7 +12,7 @@ const Top3Memes = props => {
                 props.memes !== undefined ?
                 props.memes.map((photo, key) => (
                     <div className='top3-photo-div' key={key+"_div"}>
-                        <img src={photo.url} alt="meme" key={key+"_photo"} className="top3-photo"/>
+                        <img src={`${process.env.PUBLIC_URL}/${photo.url}`} alt="meme" key={key+"_photo"} className="top3-photo"/>
                         <div className='meme-tags-div'>
                         {
                             photo.tags !== undefined ? 

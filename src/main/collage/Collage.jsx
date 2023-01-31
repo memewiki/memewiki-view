@@ -16,7 +16,7 @@ const Collage = () => {
                 <button id="open-collage-btn"> ㄱ ㄱ → </button>
             </div>
             <div id="collage-right">
-                <img src="images/this_is_life.png" alt="meme" id="collage-photo"/>
+                <img src={`${process.env.PUBLIC_URL}/images/this_is_life.png`} alt="meme" id="collage-photo"/>
             </div>
         </div>
     );

@@ -4,16 +4,21 @@ import Top3Memes from './Top3Memes';
 import MemeBoard from './../memeboard/MemeBoard';
 import Collage from './../collage/Collage';
 import MemeDetail from '../memeboard/MemeDetail';
+import { useParams } from 'react-router';
 
 const SearchResultMain = props => {
 
   const [toggleType, setToggleType] = useState('recent');
+
+  const searchKeyword = "";
+  const params = useParams();
 
   const [memes, setMemes] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [selectedMeme, setSelectedMeme] = useState({});
 
   useEffect(() => {
+    console.log("searchKeyword : " + params.searchKeyword);
     if (memes === undefined || memes.length === 0) {
       let array = [];
       for (let i = 0;i<30;i++) {

@@ -28,7 +28,7 @@ const Meme = props => {
         <div className='meme-photo-div'
             onMouseEnter={showBtns}
             onMouseLeave={hideBtns}>
-            <img src={photo.url} alt="meme" className="meme-board-photo"
+            <img src={`${process.env.PUBLIC_URL}/${photo.url}`} alt="meme" className="meme-board-photo"
                 onClick={clickMeme}/>
             <div className='meme-tags-div'>
             {

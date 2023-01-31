@@ -16,11 +16,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Search setSearchKeyword={setSearchKeyword}/>
+        <Search/>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/search" element={<SearchResultMain 
-            searchKeyword={searchKeyword}/>} />
+          <Route path="/search/:searchKeyword" element={<SearchResultMain />} />
         </Routes>
       </BrowserRouter>
     </div>

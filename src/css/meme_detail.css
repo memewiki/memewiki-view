@@ -100,7 +100,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3.0vh 12px;
+  padding: 1.0vh 12px;
   gap: 8px;
   font-size: 3.0vw;
   background: #FFFFFF;
@@ -109,6 +109,8 @@
   font-style: normal;
   width: 80%;
   height: 6.0vh;
+  text-decoration-line: none;
+  color: black;
 }
 
 #meme-detail-info-div {

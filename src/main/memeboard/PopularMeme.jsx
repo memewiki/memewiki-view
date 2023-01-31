@@ -10,7 +10,7 @@ const PopularMeme = props => {
                 {
                     photos !== undefined ?
                     photos.map((photo, key) => (
-                        <img src={photo.url} alt="meme" key={key} className="meme-photo"/>
+                        <img src={`${process.env.PUBLIC_URL}/${photo.url}`} alt="meme" key={key} className="meme-photo"/>
                     )) : null
                 }
             </div>

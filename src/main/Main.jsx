@@ -89,7 +89,7 @@ const Main = () => {
                 categories={categories}
                 category={category}
                 setCategory={setCategory}
-                tags={tags}
+                tags={tags} 
             />
             <RecentMemeTitle />
             <MemeBoard photos={recentMemePhotos}

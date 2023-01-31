@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 
 const MemeDetail = props => {
 
@@ -23,7 +22,7 @@ const MemeDetail = props => {
         <button id="meme-detail-close-btn"
           onClick={closeMemeDetail}>X</button>
         <div id="meme-detail-img-div">
-          <img src={meme.url} alt="meme" id="meme-detail-photo"/>
+          <img src={`${process.env.PUBLIC_URL}/${meme.url}`} alt="meme" id="meme-detail-photo"/>
         </div>
         <div id="meme-detail-btn-div">
           <div id="meme-detail-like-btn-div">
@@ -32,9 +31,9 @@ const MemeDetail = props => {
             </div>
           </div>
           <div id="meme-detail-download-btn-div">
-            <button id="meme-detail-download-btn">
+            <a id="meme-detail-download-btn" href={meme.url} download>
               다운로드
-            </button>
+            </a>
           </div>
           <div id="meme-detail-info-div">
             <div className='meme-detail-info-inner-div'>
