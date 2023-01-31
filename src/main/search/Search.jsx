@@ -55,7 +55,7 @@ const Search = props => {
     return (
         <div className="search">
             <div className="search-left-div">
-                <p className="search-label">웹사이트 이름</p>
+                <p className="search-label">밈위키</p>
             </div>
             <div className="search-center-div">
                 <BsSearch className='search-button'

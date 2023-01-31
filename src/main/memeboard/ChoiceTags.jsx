@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 const ChoiceTags = props => {
 
     const { categories, tags, category, setCategory } = props;
+
+    const navigate = useNavigate();
 
     const [ tagArray, setTagArray ] = useState([]);
 
@@ -17,6 +20,10 @@ const ChoiceTags = props => {
         }
     }, [categories]);
 
+    const tagClick = (tag) => {
+        navigate(`/search/${tag}`);
+    }
+
     const changeTags = category => {
         let array = []
         let subArray = [];
@@ -25,7 +32,9 @@ const ChoiceTags = props => {
 
         for (let i = 0;i<tags.length;i++) {
             if (tags[i].category !== category) continue;
-            subArray.push(<button className='tag-btn' key={i}>{tags[i].tag}</button>);
+            subArray.push(
+                <button className='tag-btn' key={i}
+                    onClick={()=>{tagClick(tags[i].tag)}}>{tags[i].tag}</button>);
             if ([4,8,13,17].includes(cnt)) {
                 subArray.push(<br key={i+"br"}/>);
                 array.push(subArray);
