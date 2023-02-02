@@ -7,20 +7,19 @@ const MemeDetail = props => {
   const [domReady, setDomReady] = useState(false);
 
   useEffect(() => {
-    console.log("meme : " + JSON.stringify(meme));
     setDomReady(true);
   }, [])
 
-  const closeMemeDetail = () => {
+  const closeModal = () => {
     setDomReady(false);
-    props.setOpenModal(false);
+    props.setOpenModal(undefined);
   }
 
   return domReady && meme !== undefined && (
-    <div id="meme-detail-outer-div">
-      <div id="meme-detail-div">
-        <button id="meme-detail-close-btn"
-          onClick={closeMemeDetail}>X</button>
+    <div className="meme-modal-outer-div">
+      <div className="meme-modal-div">
+        <button className="meme-modal-close-btn"
+          onClick={closeModal}>X</button>
         <div id="meme-detail-img-div">
           <img src={`${process.env.PUBLIC_URL}/${meme.url}`} alt="meme" id="meme-detail-photo"/>
         </div>

@@ -14,8 +14,6 @@ const SearchResultMain = props => {
   const params = useParams();
 
   const [memes, setMemes] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
-  const [selectedMeme, setSelectedMeme] = useState({});
 
   useEffect(() => {
     console.log("searchKeyword : " + params.searchKeyword);
@@ -83,16 +81,10 @@ const SearchResultMain = props => {
         setToggleType={setToggleType} />
       <Top3Memes memes={memes.slice(0,3)} />
       <MemeBoard photos={memes}
-        setSelectedMeme={setSelectedMeme}
-        setOpenModal={setOpenModal}>
+        setSelectedMeme={props.setSelectedMeme}
+        setOpenModal={props.setOpenModal}>
         <Collage />
       </MemeBoard>
-      {   
-        openModal &&
-        <MemeDetail meme={selectedMeme} 
-          openModal={openModal}
-          setOpenModal={setOpenModal} />
-      }
     </Fragment>
   );
 };

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {BsSearch} from 'react-icons/bs';
 import { useNavigate } from 'react-router';
 import AutoComplete from './AutoComplete';
@@ -52,6 +51,10 @@ const Search = props => {
         navigate(`/search/${keyword}`);
     }
 
+    const openMemeModal = () => {
+        props.setOpenModal('input');
+    }
+
     return (
         <div className="search">
             <div className="search-left-div">
@@ -67,7 +70,8 @@ const Search = props => {
                 />
             </div>
             <div className="search-right-div">
-                <button className="add-button">
+                <button className="add-button"
+                    onClick={openMemeModal}>
                     추가하기
                 </button>
             </div>

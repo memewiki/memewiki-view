@@ -21,7 +21,7 @@ const Meme = props => {
 
     const clickMeme = () => {
         props.setSelectedMeme(photo);
-        props.setOpenModal(true);
+        props.setOpenModal('detail');
     }
 
     return (

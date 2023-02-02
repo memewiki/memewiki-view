@@ -6,15 +6,13 @@ import RecentMemeTitle from './memeboard/RecentMemeTitle';
 import Collage from './collage/Collage';
 import MemeDetail from './memeboard/MemeDetail';
 
-const Main = () => {
+const Main = props => {
 
     const [popularMemePhotos, setPopularMemePhotos] = useState([]);
     const [recentMemePhotos, setRecentMemePhotos] = useState([]);
     const [categories, setCategories] = useState([]);
     const [tags, setTags] = useState([]);
     const [category, setCategory] = useState('아이돌');
-    const [selectedMeme, setSelectedMeme] = useState({});
-    const [openModal, setOpenModal] = useState(false);
 
     useEffect(() => {
 
@@ -93,16 +91,10 @@ const Main = () => {
             />
             <RecentMemeTitle />
             <MemeBoard photos={recentMemePhotos}
-                setSelectedMeme={setSelectedMeme}
-                setOpenModal={setOpenModal}>
+                setSelectedMeme={props.setSelectedMeme}
+                setOpenModal={props.setOpenModal}>
                 <Collage />
             </MemeBoard>
-            {   
-                openModal &&
-                <MemeDetail meme={selectedMeme} 
-                    openModal={openModal}
-                    setOpenModal={setOpenModal} />
-            }
         </Fragment>
     );
 };
