@@ -13,8 +13,21 @@ class MemeRepository extends ServerRemote {
         const method = "POST";
         const headers = {'Content-Type' : 'multipart/form-data'};
 
-        this.getData(api, method, formData, headers);
+        return this.getData(api, method, formData, headers);
     };
+
+    uploadMeme = async(fileName, tags) => {
+        const postBody = {
+            imageUrl : fileName,
+            tags : tags
+        };
+
+        const api = "/api/v1/memes";
+        const method = "POST";
+        const headers = {'Content-Type' : 'application/json'};
+
+        return this.getData(api, method, postBody, headers);
+    }
 }
 
 export default new MemeRepository();

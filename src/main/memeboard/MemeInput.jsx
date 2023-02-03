@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { AiFillPicture } from "react-icons/ai";
+import Swal from 'sweetalert2';
 import MemeRepository from '../repository/MemeRepository';
 
 const MemeInput = props => {
@@ -58,8 +59,22 @@ const MemeInput = props => {
     }
 
     const submit = async() => {
-        console.log(file.name);
-        await MemeRepository.uploadImage(file);
+        const result1 = await MemeRepository.uploadImage(file);
+        const result2 = await MemeRepository.uploadMeme(file.name, tags);
+
+        const status1 = result1 && result1.status === 200;
+        const status2 = result2 && result2.status === 200;
+
+        if (status1 && status2) {
+            Swal.fire({
+                icon : 'success',
+                title : '밈이 성공적으로 저장되었어요~',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setDomReady(false);
+                }
+            });
+        }
     }
 
     return domReady && (

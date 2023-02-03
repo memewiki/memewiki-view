@@ -15,7 +15,7 @@ class ServerRemote {
             data: data,
             headers : headers
         }).then(function(res) {
-            return res.data;
+            return res;
         }).catch(function(error) {
             console.log("error : " + JSON.stringify(error.response))
             return error.response;
