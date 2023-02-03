@@ -1,13 +1,13 @@
 import ServerRemote from "../../server/ServerRemote";
 
 class MemeRepository extends ServerRemote {
-    onUploadImage = async(e) => {
-        if (!e.target.files) {
+    uploadImage = async(file) => {
+        if (!file) {
             return;
         }
 
         const formData = new FormData();
-        formData.append('image', e.target.files[0]);
+        formData.append('imageFile', file);
 
         const api = "/upload/images";
         const method = "POST";

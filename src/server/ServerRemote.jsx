@@ -3,6 +3,8 @@ import NullChecker from "../util/NullChecker";
 
 class ServerRemote {
 
+    constructor() {}
+
     host = "http://localhost:8080";
 
     getData = async(api, method, data, headers) => {
@@ -23,4 +25,4 @@ class ServerRemote {
     }
 }
 
-export default new ServerRemote();
+export default ServerRemote;
