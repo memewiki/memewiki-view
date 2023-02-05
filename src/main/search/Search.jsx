@@ -47,7 +47,6 @@ const Search = props => {
     }
 
     const findKeyword = () => {
-        console.log("input keyword : " + keyword);
         navigate(`/search/${keyword}`);
     }
 

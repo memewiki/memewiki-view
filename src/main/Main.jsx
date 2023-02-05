@@ -4,7 +4,7 @@ import MemeBoard from './memeboard/MemeBoard';
 import PopularMeme from './memeboard/PopularMeme';
 import RecentMemeTitle from './memeboard/RecentMemeTitle'; 
 import Collage from './collage/Collage';
-import MemeDetail from './memeboard/MemeDetail';
+import MemeRepository from './repository/MemeRepository';
 
 const Main = props => {
 
@@ -18,6 +18,29 @@ const Main = props => {
 
         let array = [];
         let array2 = [];
+
+        async function fetchData() {
+            const result = await getRecentMemes();
+            array2 = result.data;
+            
+            for (let meme of array2) {
+                const imgData = await getImageUrl(meme.memeId);
+
+                meme.url = imgData.data;
+
+                const memeTagData = await getMemeTag(meme.memeId);
+                let infos = [];
+
+                if (memeTagData && memeTagData.status === 200) {
+                    infos = memeTagData.data.data.tagMemeDetailResponses;
+                    meme.tags = [];
+                    infos.forEach(info => meme.tags.push(info.tagName));
+                }
+
+            }
+
+            setRecentMemePhotos(array2);
+        }
 
         for (let i = 0;i<10;i++) {
             array.push({
@@ -35,24 +58,9 @@ const Main = props => {
             });
         }
 
-        for (let i = 0;i<30;i++) {
-            array2.push({
-                name : 'yuqi',
-                url : 'images/yuqi.jpg',
-                createAt : '2022.08.29',
-                download : 300,
-                viewCnt : 100,
-                tags : [
-                    '우기',
-                    '푸들',
-                    '아이들',
-                    '반전목소리'
-                ]
-            });
-        }
+        fetchData();
 
         setPopularMemePhotos(array);
-        setRecentMemePhotos(array2);
         setCategories(['아이돌', '드라마']);
         setTags([
             {category : '아이돌', tag : '아이들'}, 
@@ -79,6 +87,20 @@ const Main = props => {
             {category : '드라마', tag : '허준'},
             {category : '드라마', tag : '불멸의이순신'}]);
     },[]);
+
+    const getRecentMemes = async() => {
+        const result = await MemeRepository.getRecentMemes();
+
+        return result.data;
+    }
+
+    const getImageUrl = async(id) => {
+        return await MemeRepository.getImageUrl(id);
+    }
+
+    const getMemeTag = async(id) => {
+        return await MemeRepository.getMemeTag(id);
+    }
 
     return (
         <Fragment>

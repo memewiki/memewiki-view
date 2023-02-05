@@ -1,11 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Meme = props => {
 
-    const photo = props.photo;
+    const [photo, setPhoto] = useState(undefined);
     const downBtnRef = useRef();
     const likeBtnRef = useRef();
     const [hover, setHover] = useState(false);
+
+    useEffect(() => {
+        setPhoto(props.photo);
+    }, [props.photo]);
 
     const showBtns = () => {
         downBtnRef.current.className = 'img-download-btn';
@@ -24,11 +28,11 @@ const Meme = props => {
         props.setOpenModal('detail');
     }
 
-    return (
+    return photo && (
         <div className='meme-photo-div'
             onMouseEnter={showBtns}
             onMouseLeave={hideBtns}>
-            <img src={`${process.env.PUBLIC_URL}/${photo.url}`} alt="meme" className="meme-board-photo"
+            <img src={photo.url} alt="meme" className="meme-board-photo"
                 onClick={clickMeme}/>
             <div className='meme-tags-div'>
             {

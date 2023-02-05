@@ -10,6 +10,7 @@ const MemeInput = props => {
     const [file, setFile] = useState(undefined);
     const [tags, setTags] = useState([]);
     const inputRef = useRef();
+    const aRef = useRef();
     
     useEffect(() => {
       setDomReady(true);
@@ -59,10 +60,15 @@ const MemeInput = props => {
     }
 
     const submit = async() => {
-        const result1 = await MemeRepository.uploadImage(file);
-        const result2 = await MemeRepository.uploadMeme(file.name, tags);
-
+        const result1 = await MemeRepository.uploadMeme(file.name, tags);
         const status1 = result1 && result1.status === 200;
+        let result2 = undefined;
+        console.log("result1 : " + JSON.stringify(result1));
+        if (status1) {
+            result2 = await MemeRepository.uploadImage(thumbnail, result1.data.data.memeId, result1.data.data.memeUrl);
+        }
+
+        
         const status2 = result2 && result2.status === 200;
 
         if (status1 && status2) {
@@ -71,8 +77,13 @@ const MemeInput = props => {
                 title : '밈이 성공적으로 저장되었어요~',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    setDomReady(false);
+                    closeModal();
                 }
+            });
+        } else {
+            Swal.fire({
+                icon : 'error',
+                title : '밈 저장에 실패했어요 ㅜㅜ'
             });
         }
     }
@@ -86,7 +97,10 @@ const MemeInput = props => {
                     onDragOver={dragOverHandler}
                     onDrop={dropHandler}>
                     {   thumbnail ? 
-                        <img src={thumbnail} alt="thumbnail" /> :
+                        <>
+                            <img src={thumbnail} alt="thumbnail" />
+                            <a ref={aRef} hidden></a>
+                        </> :
                         <>
                             <AiFillPicture id='meme-image-drag-icon' />
                             <p>여기로 이미지를 드래그하거나 파일을 업로드 하세요.</p>

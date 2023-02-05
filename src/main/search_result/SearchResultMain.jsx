@@ -16,7 +16,6 @@ const SearchResultMain = props => {
   const [memes, setMemes] = useState([]);
 
   useEffect(() => {
-    console.log("searchKeyword : " + params.searchKeyword);
     if (memes === undefined || memes.length === 0) {
       let array = [];
       for (let i = 0;i<30;i++) {

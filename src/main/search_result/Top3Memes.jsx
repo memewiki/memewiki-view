@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 const Top3Memes = props => {
 
     useEffect(() => {
-        console.log("top3memes : " + JSON.stringify(props.memes));
+
     }, []);
 
     return (

@@ -17,7 +17,7 @@ class ServerRemote {
         }).then(function(res) {
             return res;
         }).catch(function(error) {
-            console.log("error : " + JSON.stringify(error.response))
+            console.log("error : " + JSON.stringify(error.response));
             return error.response;
         });
 
