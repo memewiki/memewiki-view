@@ -38,7 +38,7 @@ const Main = props => {
                 }
 
             }
-
+//
             setRecentMemePhotos(array2);
         }
 
