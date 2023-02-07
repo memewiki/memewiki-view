@@ -21,7 +21,7 @@ const MemeDetail = props => {
         <button className="meme-modal-close-btn"
           onClick={closeModal}>X</button>
         <div id="meme-detail-img-div">
-          <img src={`${process.env.PUBLIC_URL}/${meme.url}`} alt="meme" id="meme-detail-photo"/>
+          <img src={meme.url} alt="meme" id="meme-detail-photo"/>
         </div>
         <div id="meme-detail-btn-div">
           <div id="meme-detail-like-btn-div">

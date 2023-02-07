@@ -29,8 +29,8 @@ class MemeRepository extends ServerRemote {
         return this.getData(api, method, postBody, headers);
     }
 
-    getRecentMemes = async() => {
-        const api = "/api/v1/memes/popular";
+    getRecentMemes = async(page) => {
+        const api = `/api/v1/memes/main/${page+1}`;
         const method = "GET";
 
         return await this.getData(api, method, {}, {});

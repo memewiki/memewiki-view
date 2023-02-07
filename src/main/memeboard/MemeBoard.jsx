@@ -5,28 +5,19 @@ const MemeBoard = props => {
 
     const [photos, setPhotos] = useState([]);
 
-    // const upper_photos = photos.slice(0,18);
-    // const lower_photos = photos.slice(18);
-
     const [upper_photos, setUpperPhotos] = useState([]);
     const [lower_photos, setLowerPhotos] = useState([]);
 
     useEffect(() => {
         setPhotos(props.photos);
-        if (photos) {
-            setUpperPhotos(photos.slice(0, 18));
-            setLowerPhotos(photos.slice(18));
-        }
     }, [props.photos]);
 
-    // useEffect(() => {
-    //     if (!photos) {
-    //         console.log("zzz : " );
-    //         setUpperPhotos(photos.slice(0, 18));
-    //         setLowerPhotos(photos.slice(18));
-    //     }
-    //     console.log("upper : " + JSON.stringify(upper_photos));
-    // }, [photos]);
+    useEffect(() => {
+        if (photos) {
+            setUpperPhotos(photos.slice(0, 12));
+            setLowerPhotos(photos.slice(12));
+        }
+    }, [photos])
 
     const makePhotoBoard = (list) => {
         return list.map((photo, key) => (

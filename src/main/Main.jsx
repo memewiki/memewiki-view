@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useMemo, useState } from 'react';
 import ChoiceTags from './memeboard/ChoiceTags';
 import MemeBoard from './memeboard/MemeBoard';
 import PopularMeme from './memeboard/PopularMeme';
@@ -13,32 +13,35 @@ const Main = props => {
     const [categories, setCategories] = useState([]);
     const [tags, setTags] = useState([]);
     const [category, setCategory] = useState('아이돌');
+    const [pageCallCnt, setPageCallCnt] = useState(1);
+
+    let fetchDataList = useMemo(() => [], []);
 
     useEffect(() => {
 
         let array = [];
         let array2 = [];
 
-        async function fetchData() {
+        async function initData() {
             const result = await getRecentMemes();
             array2 = result.data;
             
             for (let meme of array2) {
                 const imgData = await getImageUrl(meme.memeId);
-
+    
                 meme.url = imgData.data;
-
+    
                 const memeTagData = await getMemeTag(meme.memeId);
                 let infos = [];
-
+    
                 if (memeTagData && memeTagData.status === 200) {
                     infos = memeTagData.data.data.tagMemeDetailResponses;
                     meme.tags = [];
                     infos.forEach(info => meme.tags.push(info.tagName));
                 }
-
+    
             }
-//
+    //
             setRecentMemePhotos(array2);
         }
 
@@ -58,7 +61,7 @@ const Main = props => {
             });
         }
 
-        fetchData();
+        initData();
 
         setPopularMemePhotos(array);
         setCategories(['아이돌', '드라마']);
@@ -88,8 +91,52 @@ const Main = props => {
             {category : '드라마', tag : '불멸의이순신'}]);
     },[]);
 
+    useEffect(() => {
+        console.log("recent meme : " + JSON.stringify(recentMemePhotos));
+    }, [recentMemePhotos]);
+
+    const updateState = (isReset) => {
+       fetchData(isReset).then(() => {
+            setRecentMemePhotos([...fetchDataList]);
+            console.log("recent meme : " + JSON.stringify(recentMemePhotos));
+        });
+    }
+
+    const fetchData = async(isReset) => {
+        const result = await getRecentMemes();
+
+        console.log("fetchData ------------------ start");
+
+        if(!isReset) {
+            const array = JSON.parse(JSON.stringify(recentMemePhotos));
+            const array2 = result.data;
+
+            fetchDataList = array.concat(array2);
+        } else {
+            fetchDataList = result.data;
+        }
+        
+        for (let meme of fetchDataList) {
+            const imgData = await getImageUrl(meme.memeId);
+
+            meme.url = imgData.data;
+
+            const memeTagData = await getMemeTag(meme.memeId);
+            let infos = [];
+
+            if (memeTagData && memeTagData.status === 200) {
+                infos = memeTagData.data.data.tagMemeDetailResponses;
+                meme.tags = [];
+                infos.forEach(info => meme.tags.push(info.tagName));
+            }
+
+        }
+
+        console.log("fetchData ------------------ end");
+    }
+
     const getRecentMemes = async() => {
-        const result = await MemeRepository.getRecentMemes();
+        const result = await MemeRepository.getRecentMemes(pageCallCnt+1);
 
         return result.data;
     }
@@ -111,7 +158,7 @@ const Main = props => {
                 setCategory={setCategory}
                 tags={tags} 
             />
-            <RecentMemeTitle />
+            <RecentMemeTitle fetchData={updateState}/>
             <MemeBoard photos={recentMemePhotos}
                 setSelectedMeme={props.setSelectedMeme}
                 setOpenModal={props.setOpenModal}>
