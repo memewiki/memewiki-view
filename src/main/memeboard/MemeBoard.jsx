@@ -7,7 +7,7 @@ const MemeBoard = props => {
 
     const [upper_photos, setUpperPhotos] = useState([]);
     const [lower_photos, setLowerPhotos] = useState([]);
-
+//
     useEffect(() => {
         setPhotos(props.photos);
     }, [props.photos]);
