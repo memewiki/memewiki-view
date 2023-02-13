@@ -14,7 +14,7 @@ const MemeDetail = props => {
     setDomReady(false);
     props.setOpenModal(undefined);
   }
-
+//
   return domReady && meme !== undefined && (
     <div className="meme-modal-outer-div">
       <div className="meme-modal-div">
