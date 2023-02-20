@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useMemo, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import ChoiceTags from './memeboard/ChoiceTags';
 import MemeBoard from './memeboard/MemeBoard';
 import PopularMeme from './memeboard/PopularMeme';
@@ -14,8 +14,6 @@ const Main = props => {
     const [tags, setTags] = useState([]);
     const [category, setCategory] = useState('아이돌');
     const [pageCallCnt, setPageCallCnt] = useState(1);
-
-    let fetchDataList = useMemo(() => [], []);
 
     useEffect(() => {
 
@@ -96,8 +94,8 @@ const Main = props => {
     }, [recentMemePhotos]);
 
     const updateState = (isReset) => {
-       fetchData(isReset).then(() => {
-            setRecentMemePhotos([...fetchDataList]);
+       fetchData(isReset).then((result) => {
+            setRecentMemePhotos([...result]);
             console.log("recent meme : " + JSON.stringify(recentMemePhotos));
         });
     }
@@ -106,6 +104,8 @@ const Main = props => {
         const result = await getRecentMemes();
 
         console.log("fetchData ------------------ start");
+
+        let fetchDataList = undefined;
 
         if(!isReset) {
             const array = JSON.parse(JSON.stringify(recentMemePhotos));
@@ -133,6 +133,7 @@ const Main = props => {
         }
 
         console.log("fetchData ------------------ end");
+        return fetchDataList;
     }
 
     const getRecentMemes = async() => {

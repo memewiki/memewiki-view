@@ -13,7 +13,7 @@ const MemeBoard = props => {
     }, [props.photos]);
 
     useEffect(() => {
-        if (photos) {
+        if (photos && Array.isArray(photos)) {
             setUpperPhotos(photos.slice(0, 12));
             setLowerPhotos(photos.slice(12));
         }
