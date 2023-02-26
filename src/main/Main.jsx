@@ -92,7 +92,7 @@ const Main = props => {
     useEffect(() => {
         console.log("recent meme : " + JSON.stringify(recentMemePhotos));
     }, [recentMemePhotos]);
-
+//
     const updateState = (isReset) => {
        fetchData(isReset).then((result) => {
             setRecentMemePhotos([...result]);
