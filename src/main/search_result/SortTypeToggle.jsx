@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 const SortTypeToggle = props => {
-//
+
   useEffect(() => {
     props.setToggleType(props.toggleType);
   }, [props.toggleType]);
-//
+
   const changeToggleType = () => {
     switch(props.toggleType) {
       case 'recent' :
